@@ -11,7 +11,7 @@ return {
               next = "<C-Space>",
           }
       }
-  end
+    end
   }
 }
 

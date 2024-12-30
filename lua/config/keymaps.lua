@@ -18,7 +18,7 @@ keymap("n", "<leader>/", ":nohlsearch<CR>", opts)
 -- map ; to :
 keymap("n", ";", ":", opts)
 -- open directory listing
-keymap("n", "<leader>t", ":Lex 30<cr>", opts)
+keymap("n", "<leader>t", ":NvimTreeToggle<cr>", opts)
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
