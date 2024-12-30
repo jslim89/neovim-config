@@ -6,4 +6,5 @@ require("config.lazy")
 require("config.keymaps")
 require("config.options")
 require("config.nvim-tree-config")
+require("config.lsp")
 
