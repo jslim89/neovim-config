@@ -33,20 +33,12 @@ vim.api.nvim_create_autocmd('LspAttach', {
 -- Specify the languages
 -- typescript - npm install -g typescript typescript-language-server
 require('lspconfig').ts_ls.setup({})
+-- install https://rustup.rs/
 require('lspconfig').rust_analyzer.setup({})
 
 -- autocompletion setup
 require('mason').setup({})
-require('mason-lspconfig').setup({
-  -- Replace the language servers listed here
-  -- with the ones you want to install
-  ensure_installed = {'ts_ls', 'rust_analyzer'},
-  handlers = {
-    function(server_name)
-      require('lspconfig')[server_name].setup({})
-    end,
-  }
-})
+require('mason-lspconfig').setup({})
 
 local cmp = require('cmp')
 
