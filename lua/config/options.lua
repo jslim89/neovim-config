@@ -1,4 +1,5 @@
 local options = {
+  autochdir = true,                        -- tabedit will ref to current buffer's directory
   backup = false,                          -- creates a backup file
   clipboard = "unnamedplus",               -- allows neovim to access the system clipboard
   cmdheight = 2,                           -- more space in the neovim command line for displaying messages

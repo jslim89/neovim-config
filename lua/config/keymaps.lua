@@ -19,9 +19,11 @@ keymap("n", "<leader>/", ":nohlsearch<CR>", opts)
 keymap("n", ";", ":", opts)
 -- open directory listing
 keymap("n", "<leader>t", ":NvimTreeToggle<cr>", opts)
+-- search for files
+keymap("n", "<C-p>", ":Telescope find_files<CR>", opts)
 -- Navigate buffers
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
+keymap("n", "<A-S-l>", ":bnext<CR>", opts)
+keymap("n", "<A-S-h>", ":bprevious<CR>", opts)
 -- Resize with arrows
 keymap("n", "<A-Up>", ":resize +2<CR>", opts)
 keymap("n", "<A-Down>", ":resize -2<CR>", opts)
