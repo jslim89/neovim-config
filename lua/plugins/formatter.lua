@@ -13,7 +13,7 @@ return {
           html            = { "prettier" },
           json            = { "prettier" },
           -- Conform will run the first available formatter
-          javascript      = { "prettier", stop_after_first = true },
+          javascript      = { "prettier", "eslint", stop_after_first = true },
           javascriptreact = { "prettierd" },
           liquid          = { "prettierd" },
           lua             = { "stylua" },
@@ -22,7 +22,7 @@ return {
           rust            = { "rustfmt", lsp_format = "fallback" },
           shell           = { "shfmt" },
           svelte          = { "prettier" },
-          typescript      = { "prettier" },
+          typescript      = { "prettier", "eslint", stop_after_first = true },
           typescriptreact = { "prettier" },
           yaml            = { "prettier" },
           ["*"]           = { "trim_whitespace" },
