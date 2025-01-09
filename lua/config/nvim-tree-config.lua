@@ -33,18 +33,6 @@ require("nvim-tree").setup({
   },
   renderer = {
     group_empty = true,
-    icons = {
-      show = {
-        bookmarks = false,
-        diagnostics = false,
-        file = false,
-        folder = false,
-        folder_arrow = false,
-        git = false,
-        hidden = false,
-        modified = false,
-      },
-    },
   },
   filters = {
     dotfiles = false,
