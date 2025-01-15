@@ -60,7 +60,8 @@ cmp.setup({
         end
       }
     },
-    {name = 'nvim_lsp'},
+    { name = 'nvim_lsp' },
+    { name = "vim-dadbod-completion" },
   },
   snippet = {
     expand = function(args)

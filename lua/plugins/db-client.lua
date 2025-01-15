@@ -13,6 +13,8 @@ return {
   init = function()
     -- Your DBUI configuration
     vim.g.db_ui_use_nerd_fonts = 1
+    --vim.g.db_ui_save_location = '~/dev/dbui'
+    --vim.g.db_ui_tmp_query_location = '~/dev/dbui/tmp-queries'
   end,
 }
 
