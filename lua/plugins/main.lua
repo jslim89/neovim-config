@@ -12,6 +12,7 @@ return {
           }
       }
     end
-  }
+  },
+  { 'jlanzarotta/bufexplorer' },
 }
 

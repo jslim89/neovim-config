@@ -31,10 +31,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 -- Specify the languages
+local lspconfig = require('lspconfig')
 -- typescript - npm install -g typescript typescript-language-server
-require('lspconfig').ts_ls.setup({})
+lspconfig.ts_ls.setup({})
 -- install https://rustup.rs/
-require('lspconfig').rust_analyzer.setup({})
+lspconfig.rust_analyzer.setup({})
+-- install https://go.dev/doc/install
+lspconfig.gopls.setup({})
 
 -- autocompletion setup
 require('mason').setup({})
