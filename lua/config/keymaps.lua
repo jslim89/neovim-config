@@ -15,6 +15,12 @@ local keymap = vim.api.nvim_set_keymap
 -- Normal --
 -- clear search
 keymap("n", "<leader>/", ":nohlsearch<CR>", opts)
+-- remove trailing spaces
+vim.keymap.set("n", "<leader>rs", function()
+  local saved_search = vim.fn.getreg("/")
+  vim.cmd("%s/\\s\\+$//e")
+  vim.fn.setreg("/", saved_search)
+end, opts)
 -- map ; to :
 keymap("n", ";", ":", opts)
 -- open directory listing

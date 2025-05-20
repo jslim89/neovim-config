@@ -22,6 +22,7 @@ git clone git@github.com:jslim89/neovim-config.git ~/.config/nvim
 | A-S-l | Open to next buffer |
 | S-k | [Visual block mode] move highlighted lines up |
 | S-j | [Visual block mode] move highlighted lines down |
+| ,rs | Remove trailing spaces |
 
 #### IDE-ish
 
