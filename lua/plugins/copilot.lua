@@ -5,7 +5,8 @@ return {
     event = { "InsertEnter" },
     config = function()
       require("copilot").setup({
-        auto_trigger = true,
+        suggestion = { enabled = false },
+        panel = { enabled = false },
         filetypes = {
           markdown = false,
           terraform = true,
@@ -14,6 +15,12 @@ return {
           ["*"] = false, -- disable for all other filetypes and ignore default `filetypes`
         },
       })
+    end
+  },
+  {
+    "zbirenbaum/copilot-cmp",
+    config = function ()
+      require("copilot_cmp").setup()
     end
   },
 }
