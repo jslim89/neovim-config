@@ -17,7 +17,7 @@ return {
           javascriptreact = { "prettierd" },
           liquid          = { "prettierd" },
           lua             = { "stylua" },
-          markdown        = { "prettierd" },
+          markdown        = { "prettier" },
           python          = { "isort", "black" },
           rust            = { "rustfmt", lsp_format = "fallback" },
           shell           = { "shfmt" },
