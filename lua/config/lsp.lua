@@ -36,7 +36,7 @@ local lspconfig = require('lspconfig')
 lspconfig.ts_ls.setup({})
 -- install https://rustup.rs/
 lspconfig.rust_analyzer.setup({})
--- install https://go.dev/doc/install
+-- install https://go.dev/doc/install OR brew install gopls
 lspconfig.gopls.setup({})
 
 -- autocompletion setup
