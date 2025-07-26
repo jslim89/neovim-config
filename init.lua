@@ -3,8 +3,15 @@ vim.g.mapleader = ","
 vim.g.maplocalleader = ","
 
 require("config.lazy")
-require("config.keymaps")
-require("config.options")
-require("config.nvim-tree-config")
-require("config.lsp")
+
+if vim.g.vscode then
+  -- VSCode extension
+  require("config.vscode")
+else
+  -- ordinary Neovim
+  require("config.keymaps")
+  require("config.options")
+  require("config.nvim-tree-config")
+  require("config.lsp")
+end
 
