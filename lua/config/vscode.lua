@@ -4,7 +4,7 @@ local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
 -- yank to system clipboard
-keymap("v", "y", '"+y', opts)
+keymap({"n", "v"}, "y", '"+y', opts)
 -- paste from system clipboard
 keymap({"n", "v"}, "p", '"+p', opts)
 
