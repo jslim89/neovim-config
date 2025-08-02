@@ -1,12 +1,10 @@
 local vscode = require('vscode')
 local keymap = vim.keymap.set
 
-local opts = { noremap = true, silent = true }
+-- share the system clipboard
+vim.opt.clipboard = "unnamedplus"
 
--- yank to system clipboard
-keymap({"n", "v"}, "y", '"+y', opts)
--- paste from system clipboard
-keymap({"n", "v"}, "p", '"+p', opts)
+local opts = { noremap = true, silent = true }
 
 -- Visual Block --
 -- Move text up and down
