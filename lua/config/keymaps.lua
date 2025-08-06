@@ -13,6 +13,8 @@ local keymap = vim.api.nvim_set_keymap
 --   command_mode = "c",
 
 -- Normal --
+-- reload nvim config
+keymap('n', '<leader>sv', ':source $MYVIMRC<CR>', { desc = 'Reload Neovim config' })
 -- clear search
 keymap("n", "<leader>/", ":nohlsearch<CR>", opts)
 -- remove trailing spaces
