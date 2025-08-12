@@ -20,6 +20,9 @@ return {
       },
     },
     cmd = { "CsvViewEnable", "CsvViewDisable", "CsvViewToggle" },
+    config = function()
+      require('csvview').enable()
+    end
   }
 }
 

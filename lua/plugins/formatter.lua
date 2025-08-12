@@ -48,4 +48,16 @@ return {
       end, { desc = "Format file or range (in visual mode)" })
     end,
   },
+  {
+    'Wansmer/treesj',
+    config = function()
+      local treesj = require('treesj')
+      treesj.setup({
+        use_default_keymaps = false,
+      })
+      vim.keymap.set({ "n", "v" }, "<leader>m", treesj.toggle)
+      vim.keymap.set({ "n", "v" }, "<leader>s", treesj.split)
+      vim.keymap.set({ "n", "v" }, "<leader>j", treesj.join)
+    end,
+  }
 }
