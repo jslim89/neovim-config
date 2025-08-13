@@ -9,6 +9,7 @@ if vim.g.vscode then
   require("config.vscode")
 else
   -- ordinary Neovim
+  require("config.autocmds")
   require("config.keymaps")
   require("config.options")
   require("config.nvim-tree-config")
