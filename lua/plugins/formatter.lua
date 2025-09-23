@@ -13,7 +13,7 @@ return {
           html            = { "prettier" },
           json            = { "prettier" },
           -- Conform will run the first available formatter
-          javascript      = { "prettier", "eslint", stop_after_first = true },
+          javascript      = { "prettier" },
           javascriptreact = { "prettierd" },
           liquid          = { "prettierd" },
           lua             = { "stylua" },
@@ -22,6 +22,7 @@ return {
           rust            = { "rustfmt", lsp_format = "fallback" },
           shell           = { "shfmt" },
           svelte          = { "prettier" },
+          sql             = { "sqruff", timeout_ms = 1000, async = false },
           typescript      = { "prettier", "eslint", stop_after_first = true },
           typescriptreact = { "prettier" },
           yaml            = { "prettier" },
@@ -35,6 +36,10 @@ return {
             condition = function()
               return vim.loop.fs_realpath(".prettierrc.js") ~= nil or vim.loop.fs_realpath(".prettierrc.mjs") ~= nil
             end,
+          },
+          sqruff = {
+            command = "/opt/homebrew/bin/sqruff",
+            args = { "fix" },
           },
         },
       })

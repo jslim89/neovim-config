@@ -2,6 +2,13 @@
 
 Use [lazy.nvim](https://github.com/folke/lazy.nvim) as package manager.
 
+## Pre-requisite
+
+```
+brew install tmux \
+    sqruff
+```
+
 ## Usage
 
 ```sh
