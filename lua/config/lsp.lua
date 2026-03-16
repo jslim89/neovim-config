@@ -3,10 +3,10 @@ vim.opt.updatetime = 800
 
 -- Add cmp_nvim_lsp capabilities settings to lspconfig
 -- This should be executed before you configure any language server
-local lspconfig_defaults = require('lspconfig').util.default_config
-lspconfig_defaults.capabilities = vim.tbl_deep_extend(
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = vim.tbl_deep_extend(
   'force',
-  lspconfig_defaults.capabilities,
+  capabilities,
   require('cmp_nvim_lsp').default_capabilities()
 )
 
@@ -31,13 +31,19 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 -- Specify the languages
-local lspconfig = require('lspconfig')
 -- typescript - npm install -g typescript typescript-language-server
-lspconfig.ts_ls.setup({})
+vim.lsp.config("ts_ls", {
+  capabilities = capabilities,
+})
 -- install https://rustup.rs/
-lspconfig.rust_analyzer.setup({})
+vim.lsp.config("rust_analyzer", {
+  capabilities = capabilities,
+})
 -- install https://go.dev/doc/install OR brew install gopls
-lspconfig.gopls.setup({})
+vim.lsp.config("gopls", {
+  capabilities = capabilities,
+})
+vim.lsp.enable({"ts_ls", "rust_analyzer", "gopls"})
 
 -- autocompletion setup
 require('mason').setup({})
