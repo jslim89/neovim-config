@@ -32,6 +32,10 @@ return {
         quiet                = false,  -- Conform will suppress all output if quiet is true.
         notify_no_formatters = true,  -- Conform will notify you when no formatters are available for the buffer.
         formatters           = {
+          prettier = {
+            -- Let prettier auto-detect the parser from the file extension
+            args = { "--stdin-filepath", "$FILENAME" },
+          },
           prettierd = {
             condition = function()
               return vim.loop.fs_realpath(".prettierrc.js") ~= nil or vim.loop.fs_realpath(".prettierrc.mjs") ~= nil
