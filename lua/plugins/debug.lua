@@ -14,10 +14,12 @@ return {
       local dapui = require('dapui')
 
       -- Installs debug adapters via Mason and auto-wires the ones it
-      -- knows about (codelldb -> c/cpp/rust/swift/zig). js-debug-adapter
-      -- is installed here too but wired manually below (pwa-node).
+      -- knows about (codelldb -> c/cpp/rust/swift/zig). Note: ensure_installed
+      -- takes dap adapter names, not mason package names (e.g. 'js', not
+      -- 'js-debug-adapter'). 'js' is installed here but wired manually below
+      -- (pwa-node), since mason-nvim-dap no longer auto-wires it.
       require('mason-nvim-dap').setup({
-        ensure_installed = { 'codelldb', 'js-debug-adapter' },
+        ensure_installed = { 'codelldb', 'js' },
         handlers = {},
       })
 
