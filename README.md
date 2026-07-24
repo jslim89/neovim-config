@@ -6,8 +6,11 @@ Use [lazy.nvim](https://github.com/folke/lazy.nvim) as package manager.
 
 ```
 brew install tmux \
-    sqruff
+    sqruff \
+    delve
 ```
+
+Debug adapters for TypeScript/Node (`js-debug-adapter`) and Rust (`codelldb`) are installed automatically via Mason on first `:Lazy sync`.
 
 ## Usage
 
@@ -47,6 +50,22 @@ git clone git@github.com:jslim89/neovim-config.git ~/.config/nvim
 | --------- | ----------- |
 | a | Create a new file |
 | d | Remove a file |
+
+#### Debugging
+
+| Shortcuts | Description |
+| --------- | ----------- |
+| ,db | Toggle breakpoint |
+| ,dB | Set conditional breakpoint |
+| ,dc | Continue / start debug session |
+| ,di | Step into |
+| ,do | Step over |
+| ,dO | Step out |
+| ,dt | Terminate session |
+| ,dl | Run last debug configuration |
+| ,dr | Open REPL |
+| ,du | Toggle debug UI |
+| ,dh | Hover to inspect variable value |
 
 ## Config
 
