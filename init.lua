@@ -14,5 +14,6 @@ else
   require("config.options")
   require("config.nvim-tree-config")
   require("config.lsp")
+  require("config.rex-navigator")
 end
 
