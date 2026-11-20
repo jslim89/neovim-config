@@ -15,5 +15,6 @@ else
   require("config.nvim-tree-config")
   require("config.lsp")
   require("config.rex-navigator")
+  require("config.zellij-tab-title")
 end
 
