@@ -14,6 +14,15 @@ local function navigate(key)
     end
   end
 
+  -- inside zellij: zellij-nav moves within nvim, then falls through to zellij
+  if vim.env.ZELLIJ then
+    local ok, nav = pcall(require, "zellij-nav")
+    if ok then
+      nav[dirs[key]]()
+      return
+    end
+  end
+
   -- otherwise: move within nvim, and if that didn't move us
   -- (edge of the splits), ask Rex to move focus
   local win = vim.api.nvim_get_current_win()
