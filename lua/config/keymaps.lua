@@ -28,7 +28,7 @@ keymap("n", ";", ":", opts)
 -- open directory listing
 keymap("n", "<leader>t", ":NvimTreeToggle<cr>", opts)
 -- search for files
-keymap("n", "<C-p>", ":Telescope find_files<CR>", opts)
+keymap("n", "<C-p>", ":FzfLua files<CR>", opts)
 -- Navigate buffers
 keymap("n", "<A-S-l>", ":bnext<CR>", opts)
 keymap("n", "<A-S-h>", ":bprevious<CR>", opts)
