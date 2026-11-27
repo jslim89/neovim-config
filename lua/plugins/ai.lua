@@ -1,43 +1,96 @@
 return {
   {
-    "olimorris/codecompanion.nvim",
-    version = "^19.0.0",
+    "folke/sidekick.nvim",
+    -- Load at startup so it handles Copilot LSP notifications from the first buffer (needed for next edit suggestions).
+    lazy = false,
     opts = {
-      interactions = {
-        chat = {
-          adapter = "copilot",
-          model = "gpt-5.4",
+      cli = {
+        mux = {
+          backend = vim.env.ZELLIJ and "zellij" or "tmux",
+          enabled = true,
         },
-        inline = {
-          adapter = "copilot",
-        },
-        cmd = {
-          adapter = "copilot",
-        },
-        background = {
-          adapter = {
-            name = "copilot",
-            model = "gpt-5.4",
-          },
-        },
-      },
-      -- NOTE: The log_level is in `opts.opts`
-      opts = {
-        log_level = "DEBUG",
       },
     },
-    config = function()
-      local codecompanion = require("codecompanion")
-
-      vim.keymap.set({ "n", "v" }, "<LocalLeader>]", function()
-        codecompanion.toggle({ window_opts = { layout = "float", width = 0.6 }})
-      end, { noremap = true, silent = true })
-    end,
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
-      "ravitemer/mcphub.nvim",
+    keys = {
+      {
+        "<tab>",
+        function()
+          -- if there is a next edit, jump to it, otherwise apply it if any
+          if not require("sidekick").nes_jump_or_apply() then
+            return "<Tab>"
+          end
+        end,
+        expr = true,
+        desc = "Goto/Apply Next Edit Suggestion",
+      },
+      {
+        "<c-.>",
+        function()
+          require("sidekick.cli").focus()
+        end,
+        mode = { "n", "t", "i", "x" },
+        desc = "Sidekick Focus",
+      },
+      {
+        "<leader>aa",
+        function()
+          require("sidekick.cli").toggle()
+        end,
+        desc = "Sidekick Toggle CLI",
+      },
+      {
+        "<LocalLeader>]",
+        function()
+          require("sidekick.cli").toggle()
+        end,
+        mode = { "n", "v" },
+        desc = "Sidekick Toggle CLI",
+      },
+      {
+        "<leader>as",
+        function()
+          require("sidekick.cli").select({ filter = { installed = true } })
+        end,
+        desc = "Select CLI",
+      },
+      {
+        "<leader>ad",
+        function()
+          require("sidekick.cli").close()
+        end,
+        desc = "Detach a CLI Session",
+      },
+      {
+        "<leader>at",
+        function()
+          require("sidekick.cli").send({ msg = "{this}" })
+        end,
+        mode = { "x", "n" },
+        desc = "Send This",
+      },
+      {
+        "<leader>af",
+        function()
+          require("sidekick.cli").send({ msg = "{file}" })
+        end,
+        desc = "Send File",
+      },
+      {
+        "<leader>av",
+        function()
+          require("sidekick.cli").send({ msg = "{selection}" })
+        end,
+        mode = { "x" },
+        desc = "Send Visual Selection",
+      },
+      {
+        "<leader>ap",
+        function()
+          require("sidekick.cli").prompt()
+        end,
+        mode = { "n", "x" },
+        desc = "Sidekick Select Prompt",
+      },
     },
   },
 }
-

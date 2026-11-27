@@ -43,11 +43,21 @@ vim.lsp.config("rust_analyzer", {
 vim.lsp.config("gopls", {
   capabilities = capabilities,
 })
-vim.lsp.enable({"ts_ls", "rust_analyzer", "gopls"})
+-- installed by mason; lazydev.nvim adds the Neovim runtime/plugin types
+vim.lsp.config("lua_ls", {
+  capabilities = capabilities,
+})
+-- installed by mason; used by sidekick.nvim, run :LspCopilotSignIn once
+vim.lsp.config("copilot", {
+  capabilities = capabilities,
+})
+vim.lsp.enable({"ts_ls", "rust_analyzer", "gopls", "lua_ls", "copilot"})
 
 -- autocompletion setup
 require('mason').setup({})
-require('mason-lspconfig').setup({})
+require('mason-lspconfig').setup({
+  ensure_installed = { "lua_ls", "copilot" },
+})
 
 local cmp = require('cmp')
 
@@ -57,6 +67,8 @@ cmp.setup({
     completeopt = 'menu,menuone,noinsert',
   },
   sources = {
+    -- group_index 0 skips LuaLS's own require/annotation completions in favour of lazydev's
+    { name = 'lazydev', group_index = 0 },
     {
       name = 'buffer',
       option = {
